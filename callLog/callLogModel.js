@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema
 
 var callLogModel = new Schema({
-    _id: String,
+    uid: String,
     firstName: String,
     lastName: String,
     mobileNumber: String,

@@ -16,21 +16,21 @@ var getContacts = function(req, res) {
 }
 
 var editContact = function(req, res) {
-    var _id = req.body._id;
+    var uid = req.body.uid;
     var firstName = req.body.firstName;
     var lastName = req.body.lastName;
     var mobileNumber = req.body.mobileNumber;
     var email = req.body.mobileNumber
-    contactsModel.findByIdAndUpdate({ _id }, { firstName, lastName, mobileNumber, email }, function(err, result) {
+    contactsModel.findOneAndUpdate({ uid }, { firstName, lastName, mobileNumber, email }, function(err, result) {
         if (err) res.send({ "meswsage": "connot update" });
         else res.send({ "meswsage": " updated" });
     })
 }
 
 var deleteContact = function(req, res) {
-    var _id = req.body._id;
+    var uid = req.body.uid;
 
-    contactsModel.findByIdAndRemove({ _id }, function(err, result) {
+    contactsModel.findOneAndRemove({ uid }, function(err, result) {
         if (err) res.send({ "meswsage": "connot delete" });
         else res.send({ "meswsage": " Deleted" });
     })
