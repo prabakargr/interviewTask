@@ -16,7 +16,14 @@ var findMessages = function(req, res) {
     })
 }
 
+var getMessages = function(req, res) {
+    messageModel.find(function(err, result) {
+        if (err) res.send({ "message": "cannot get" });
+        else res.send(result);
+    })
+}
 module.exports = {
     createMessage: createMessage,
-    findMessages: findMessages
+    findMessages: findMessages,
+    getMessages: getMessages
 }

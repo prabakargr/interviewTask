@@ -6,5 +6,6 @@ var messageController = require('./messageController');
 
 messageRouting.route('/createMessage').post(messageController.createMessage);
 messageRouting.route('/findMessages').post(messageController.findMessages);
+messageRouting.route('/getMessages').get(messageController.getMessages);
 
 module.exports = messageRouting;
