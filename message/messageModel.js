@@ -8,8 +8,7 @@ var messageModel = new Schema({
     lastName: String,
     mobileNumber: String,
     email: String,
-    dateTime: String,
-    message: String
+    message: []
 
 });
 

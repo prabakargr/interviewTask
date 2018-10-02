@@ -36,9 +36,24 @@ var deleteContact = function(req, res) {
     })
 }
 
+var createMessage = function(req, res) {
+    var _id = req.body._id
+    contactsModel.findById({ _id }, function(err, result) {
+        if (err) res.send({ "message": "cannot update" });
+        else {
+            result.message.push(req.body.message);
+            result.save(function(err) {
+                if (err) res.send({ "message": "cannot create" });
+                else res.send({ "message": "created message" })
+            })
+        }
+    })
+}
+
 module.exports = {
     createContact: createContact,
     getContacts: getContacts,
     editContact: editContact,
-    deleteContact: deleteContact
+    deleteContact: deleteContact,
+    createMessage: createMessage
 }

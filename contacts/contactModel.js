@@ -7,7 +7,8 @@ var contactsModel = new Schema({
     firstName: String,
     lastName: String,
     mobileNumber: String,
-    email: String
+    email: String,
+    message: []
 
 });
 
